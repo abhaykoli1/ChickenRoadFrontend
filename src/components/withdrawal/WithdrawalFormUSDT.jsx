@@ -1,23 +1,24 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const WithdrawalFormUSDT = () => {
   const [formData, setFormData] = useState({
-    amount: '',
-    network: 'TRC20',
-    walletAddress: '',
-    email: '',
+    amount: "",
+    network: "TRC20",
+    walletAddress: "",
+    email: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const user = JSON.parse(localStorage.getItem("user"))
+  const user = JSON.parse(localStorage.getItem("user"));
   const accessToken = localStorage.getItem("accessToken");
   const userId = user._id;
 
@@ -26,20 +27,32 @@ const WithdrawalFormUSDT = () => {
 
     try {
       // Replace this with your actual API endpoint
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/wallet/withraw`, {
-        userId,
-        amount: formData.amount,
-        method: "USDT",
-        details: formData,
-        remarks: "Payment request for INR"
-      }, {
-        headers: {
-          Authorization: accessToken, // Make sure the token is valid
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/v1/wallet/withraw`,
+        {
+          userId,
+          amount: formData.amount,
+          method: "USDT",
+          details: formData,
+          remarks: "Payment request for INR",
         },
-        withCredentials: true,
+        {
+          headers: {
+            Authorization: accessToken, // Make sure the token is valid
+          },
+          withCredentials: true,
+        }
+      );
+      toast.success("Withdrawal request submitted successfully!");
+      setFormData({
+        amount: "",
+        network: "TRC20",
+        walletAddress: "",
+        email: "",
       });
     } catch (error) {
-      console.error('Error submitting withdrawal:', error);
+      toast.error("Error submitting withdrawal request.");
+      console.error("Error submitting withdrawal:", error);
       // Optionally show error feedback
     }
   };
