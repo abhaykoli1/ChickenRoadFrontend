@@ -36,11 +36,11 @@ const AboutDialog = () => {
 
   return (
     <div className="fixed inset-0 flex !z-30 items-center justify-center bg-black/50">
-      <div className="bg-white p-6 rounded-xl shadow-lg w-96">
+      <div className="bg-red-950 p-6 rounded-xl shadow-lg w-96">
         <h2 className="text-lg font-bold mb-4">📢 Notification</h2>
         <p className="mb-4">{message}</p>
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+          className="bg-yellow-600 text-white px-4 !py-1 cursor-pointer rounded-lg"
           onClick={handleClose}
         >
           Close
