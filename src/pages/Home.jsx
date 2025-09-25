@@ -31,9 +31,9 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen flex relative  overflow-x-hidden bg-[#160003] ">
-      <div className="md:max-w-md sm:max-w-md w-full  flex flex-col  mx-auto">
-        <div className=" md:border-x md:border-amber-200 sm:border-x sm:border-amber-200 h-full">
+    <div className="min-h-screen flex relative  overflow-x-hidden  bg-gradient-to-t from-[#160003] to-[#420303]">
+      <div className="md:max-w-md sm:max-w-md w-full shadow-2xl shadow-amber-50/15 flex flex-col text-white   mx-auto">
+        <div className=" md:borderx-[0.5px] shadow-2xl shadow-amber-50/15 pt-5  pb-20 h-full">
           <AboutDialog />
           <div className="fixed !z-40  top-1/2  -translate-y-1/2 right-5">
             <TelegramMenu />

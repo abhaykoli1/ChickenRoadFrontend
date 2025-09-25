@@ -1,4 +1,5 @@
 import axios from "axios";
+import axiosInstance from "./axiosInstance";
 
 const registerUser = async ({
   fullName,
@@ -8,13 +9,16 @@ const registerUser = async ({
   ref_by,
 }) => {
   try {
-    const res = await axios.post(
-      `${import.meta.env.VITE_API_URL}/api/v1/users/register`,
-      { fullName, email, phoneNumber, password, ref_by }
-    );
+    const res = await axiosInstance.post(`/api/v1/users/register`, {
+      fullName,
+      email,
+      phoneNumber,
+      password,
+      ref_by,
+    });
     return res.data; // optional: return something useful
   } catch (error) {
-    console.error("Failed to register user:", error);
+    console.log("Failed to register user:", error);
     throw error; // optional: re-throw for UI to handle
   }
 };
@@ -45,7 +49,7 @@ const verifyOTP = async ({
     navigate("/");
     return res.data; // optional: return something useful
   } catch (error) {
-    console.error("OTP is not correct or expired", error);
+    console.log("OTP is not correct or expired", error);
     throw error; // optional: re-throw for UI to handle
   }
 };

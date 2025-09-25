@@ -116,67 +116,74 @@ const RankingPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen pb-20 bg-gradient-to-b from-[#1a0a0a] to-[#420303] text-white py-8 px-4 sm:px-8">
-      <div className="border-t md:hidden fixed left-0 bottom-0 z-20">
-        <BottomBar />
-      </div>
-      <div className="container mx-auto">
-        {/* Jackpot Section */}
-        <div className="bg-[#9C1137] p-6 rounded-xl shadow-lg mb-6 text-center">
-          <h2 className="text-2xl font-bold text-yellow-400">JACKPOT</h2>
-          <div className="text-4xl font-extrabold text-white">₹ 008069381</div>
-          <div className="text-sm text-yellow-200 mt-2">
-            2% of the total bet of selected games
-          </div>
+    <div className="min-h-screen flex relative  overflow-x-hidden  bg-gradient-to-t from-[#160003] to-[#420303]">
+      <div className="md:max-w-md sm:max-w-md w-full shadow-2xl shadow-amber-50/15 flex flex-col text-white py-10 pb-20 mx-auto">
+        <div className="border  fixed left w-full bottom-0 rounded-t-xl border-none z-20">
+          <BottomBar />
         </div>
-
-        {/* Ranking Section */}
-        <h1 className="text-4xl font-bold text-center mb-8">Leaderboard</h1>
-
-        <div className="flex justify-center mb-6">
-          {/* Top 3 Ranks */}
-          {users.slice(0, 3).map((user) => (
-            <div key={user.id} className="text-center mx-4">
-              <div className="flex justify-center mb-2">
-                <Crown size={48} color="#ffd700" />
-              </div>
-              <div className="text-xl font-semibold text-yellow-400">
-                {user.name[0]}****{user.name[user.name.length - 1]}
-              </div>
-              <div className="text-lg text-gray-300">
-                ₹ {user.points.toLocaleString()}
-              </div>
-              <div className="text-sm text-gray-400">
-                ₹ {user.bonus.toLocaleString()} Bonus
-              </div>
+        <div className="container mx-auto  px-5">
+          {/* Jackpot Section */}
+          <div className="bg-[#9C1137] p-6 rounded-xl shadow-lg mb-6 text-center">
+            <h2 className="text-2xl font-bold text-yellow-400">JACKPOT</h2>
+            <div className="text-4xl font-extrabold text-white">
+              ₹ 008069381
             </div>
-          ))}
-        </div>
+            <div className="text-sm text-yellow-200 mt-2">
+              2% of the total bet of selected games
+            </div>
+          </div>
 
-        {/* Ranking List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {users.map((user) => (
-            <div
-              key={user.id}
-              className="bg-[#6A1F2A] p-4 rounded-lg flex items-center"
-            >
-              <div className="w-12 h-12 bg-gradient-to-r from-[#ff6b6b] to-[#d44444] rounded-full flex justify-center items-center text-xl font-semibold text-white">
-                {/* {user.rank} */}
-                <img src={user.avtar} className="rounded-full h-full w-full" />
-              </div>
-              <div className="ml-4 flex-1">
-                <div className="font-semibold">
+          {/* Ranking Section */}
+          <h1 className="text-4xl font-bold text-center mb-8">Leaderboard</h1>
+
+          <div className="flex justify-center mb-6">
+            {/* Top 3 Ranks */}
+            {users.slice(0, 3).map((user) => (
+              <div key={user.id} className="text-center mx-4">
+                <div className="flex justify-center mb-2">
+                  <Crown size={48} color="#ffd700" />
+                </div>
+                <div className="text-xl font-semibold text-yellow-400">
                   {user.name[0]}****{user.name[user.name.length - 1]}
                 </div>
-                <div className="text-sm text-gray-400">
+                <div className="text-lg text-gray-300">
                   ₹ {user.points.toLocaleString()}
                 </div>
+                <div className="text-sm text-gray-400">
+                  ₹ {user.bonus.toLocaleString()} Bonus
+                </div>
               </div>
-              <div className="text-sm text-gray-400">
-                ₹ {user.bonus.toLocaleString()}
+            ))}
+          </div>
+
+          {/* Ranking List */}
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4">
+            {users.map((user) => (
+              <div
+                key={user.id}
+                className="bg-[#6A1F2A] p-4 rounded-lg flex items-center"
+              >
+                <div className="w-12 h-12 bg-gradient-to-r from-[#ff6b6b] to-[#d44444] rounded-full flex justify-center items-center text-xl font-semibold text-white">
+                  {/* {user.rank} */}
+                  <img
+                    src={user.avtar}
+                    className="rounded-full h-full w-full"
+                  />
+                </div>
+                <div className="ml-4 flex-1">
+                  <div className="font-semibold">
+                    {user.name[0]}****{user.name[user.name.length - 1]}
+                  </div>
+                  <div className="text-sm text-gray-400">
+                    ₹ {user.points.toLocaleString()}
+                  </div>
+                </div>
+                <div className="text-sm text-gray-400">
+                  ₹ {user.bonus.toLocaleString()}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

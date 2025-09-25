@@ -28,9 +28,9 @@ const BottomBar = ({ hidden }) => {
   };
 
   return (
-    <nav className="  w-full  md:max-w-md sm:max-w-md md:pr-[2px] sm:pr-[2px]  ">
+    <nav className="  w-full  md:max-w-md sm:max-w-md md:pr[2px] sm:pr[2px]  ">
       <div
-        className={`text-amber-200 w-full  px-4  py-2 border-t-1  border-amber-200 bg-[#160003] mhidden flex justify-between min-w-ful items-center`}
+        className={`text-amber-200 w-full rounded-t-lg  px-4  py-2 border-t-1 border-x-1 border-amber-200 bg-[#160003] mhidden flex justify-between min-w-ful items-center`}
       >
         <Link to={"/"} className="flex flex-col items-center">
           <School />

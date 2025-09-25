@@ -14,14 +14,15 @@ const Signup = () => {
 
   console.log("refId", refId);
   const [formData, setFormData] = useState({
-    name: "",
+    name: "abhay",
     email: "",
     phone: "",
-    password: "",
-    confirmPassword: "",
+    password: "@Ipkoliki0",
+    confirmPassword: "@Ipkoliki0",
     ref_by: refId || "",
   });
 
+  console.log(formData);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -197,7 +198,7 @@ const Signup = () => {
           });
         }
       } catch (error) {
-        console.log("Registration error:", error);
+        console.log("Registration error: ==== ", error);
         setSubmitStatus({
           type: "error",
           message:

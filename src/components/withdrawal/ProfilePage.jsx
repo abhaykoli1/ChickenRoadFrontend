@@ -54,30 +54,15 @@ export default function ProfilePage() {
       image: <GiChicken className="w-5 h-5 text-yellow-500" />,
       link: "/chicken-road",
     },
-
-    // mining: {
-    //   displayName: "Gold Miner Quest",
-    //   image: <GiGoldBar className="w-5 h-5 text-yellow-500" />,
-    //   link: "/mines",
-    // },
-
-    // aviator: {
-    //   displayName: "Aviator",
-    //   image: <FaPlaneDeparture className="w-5 h-5 text-red-500" />,
-    //   link: "/aviator",
-    // },
-
-    // color: {
-    //   displayName: "Color Trading",
-    //   image: <IoIosColorFilter className="w-5 h-5 text-blue-500" />,
-    //   link: "/color-trading",
-    // },
   };
 
   return (
-    <section className="bg-[#160003]">
-      <div className="min-h-screen overflow-scroll pb-20 mx-auto md:max-w-lg text-white bg-gradient-t-b borde-x-[0.5px] border-gray-100 bg-[#160003] fromblue-50 t-white flex flex-col">
-        {/* Top Section */}
+    <div className="min-h-screen flex relative  overflow-x-hidden  bg-gradient-to-t from-[#160003] to-[#420303]">
+      <div className="md:max-w-md sm:max-w-md w-full shadow-2xl shadow-amber-50/15 flex flex-col text-white py-5 pb-20 mx-auto">
+        <div className="border  fixed left w-full bottom-0 rounded-t-xl border-none z-20">
+          <BottomBar />
+        </div>
+
         <div className="p-4 flex justify-end items-center">
           <div className="flex gap-4">
             {isAuthenticated ? (
@@ -105,29 +90,6 @@ export default function ProfilePage() {
                         {user._id[user._id.length - 2]}
                       </p>
                     </span>
-                    {/* 
-                    <a
-                      href="/change-password"
-                      className="block px-4 py-2 text-sm hover:shadow-xs shadow-red-500 focus:outline-none cursor-pointer"
-                    >
-                      Change Password
-                    </a> */}
-
-                    {/* {games.map((gameKey) => {
-                      const info = gameInfo[gameKey];
-                      if (!info) return null;
-
-                      return (
-                        <MenuItem key={info.displayName}>
-                          <a
-                            href={info.link}
-                            className="block px-4 py-2 text-sm hover:shadow-xs shadow-red-500 focus:outline-none"
-                          >
-                            {info.displayName}
-                          </a>
-                        </MenuItem>
-                      );
-                    })} */}
 
                     <MenuItem>
                       <a
@@ -159,12 +121,6 @@ export default function ProfilePage() {
                       Ranking
                     </a>
 
-                    {/* <a
-                      href="/"
-                      className="block px-4 py-2 text-sm hover:shadow-xs shadow-red-500 focus:outline-none cursor-pointer"
-                    >
-                      Notification
-                    </a> */}
                     <a
                       href="/"
                       className="block px-4 py-2 text-sm hover:shadow-xs shadow-red-500 focus:outline-none cursor-pointer"
@@ -208,46 +164,17 @@ export default function ProfilePage() {
               </>
             )}
           </div>
-          {/* <User className="w-12 h-12 text-red-500 border rounded-full p-2" /> */}
-          {/* <div className="flex gap-3">
-            <Headphones className="w-6 h-6 text-gray-300" />
-            <Settings className="w-6 h-6 text-gray-300" />
-          </div> */}
         </div>
 
-        {/* Profile Info */}
         <div className="text-center">
           <h2 className="text-lg font-semibold">{user?.phoneNumber}</h2>
           <div className="flex items-center justify-center mt-3">
-            {/* <div>
-              <p className="text-gray-400 text-sm">Total amount(₹)</p>
-              <p className="text-xl font-bold">200</p>
-            </div> */}
-
             <div>
               <p className="text-gray-400 text-sm">Available(₹)</p>
               <p className="text-xl font-bold">₹ {`${integerBalance}`}</p>
             </div>
-            {/* <div>
-              <p className="text-gray-400 text-sm">Progressing(₹)</p>
-              <p className="text-xl font-bold">0</p>
-            </div> */}
           </div>
         </div>
-
-        {/* Reward Section */}
-        {/* <div className="mx-4 mt-6 rounded-2xl shadow bg-gradient-to-r from-[#9C1137] via-[#9C1137]  to-black p-4 flex justify-between items-center">
-          <div>
-            <p className="text-gray-300 font-medium">Reward</p>
-            <h3 className="text-xl font-bold">0.00</h3>
-          </div>
-          <div className="text-right">
-            <button className="rounded-full bg-blue-500 text-white px-4 py-1 text-sm shadow">
-              Details
-            </button>
-            <p className="text-sm text-gray-300 mt-1">03 Sep</p>
-          </div>
-        </div> */}
 
         {/* Menu List */}
         <div className="mt-6 space-y-3 mx-4">
@@ -315,12 +242,8 @@ export default function ProfilePage() {
             </a>
           )}
         </div>
-
-        {/* Bottom Navigation */}
-        <div className=" fixed left-0 bottom-0 z-20 ">
-          <BottomBar />
-        </div>
       </div>
-    </section>
+    </div>
+    // </div>
   );
 }
